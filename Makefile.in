@@ -156,7 +156,8 @@ am__objects_6 = libSBRenc/src/bit_sbr.lo libSBRenc/src/env_bit.lo \
 	libSBRenc/src/ps_main.lo libSBRenc/src/sbrenc_freq_sca.lo \
 	libSBRenc/src/sbr_misc.lo libSBRenc/src/sbr_rom.lo \
 	libSBRenc/src/tran_det.lo
-am__objects_7 = libPCMutils/src/pcmutils_lib.lo
+am__objects_7 = libPCMutils/src/limiter.lo \
+	libPCMutils/src/pcmutils_lib.lo
 am__objects_8 = libFDK/src/autocorr2nd.lo libFDK/src/dct.lo \
 	libFDK/src/FDK_bitbuffer.lo libFDK/src/FDK_core.lo \
 	libFDK/src/FDK_crc.lo libFDK/src/FDK_hybrid.lo \
@@ -495,6 +496,7 @@ MPEGTPENC_SRC = \
     libMpegTPEnc/src/tpenc_lib.cpp
 
 PCMUTILS_SRC = \
+    libPCMutils/src/limiter.cpp \
     libPCMutils/src/pcmutils_lib.cpp
 
 SBRDEC_SRC = \
@@ -575,6 +577,7 @@ EXTRA_DIST = \
     $(top_srcdir)/libFDK/include/*.h \
     $(top_srcdir)/libFDK/include/arm/*.h \
     $(top_srcdir)/libFDK/include/mips/*.h \
+    $(top_srcdir)/libFDK/include/ppc/*.h \
     $(top_srcdir)/libFDK/include/x86/*.h \
     $(top_srcdir)/libFDK/src/arm/*.cpp \
     $(top_srcdir)/libFDK/src/mips/*.cpp
@@ -889,6 +892,8 @@ libPCMutils/src/$(am__dirstamp):
 libPCMutils/src/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) libPCMutils/src/$(DEPDIR)
 	@: > libPCMutils/src/$(DEPDIR)/$(am__dirstamp)
+libPCMutils/src/limiter.lo: libPCMutils/src/$(am__dirstamp) \
+	libPCMutils/src/$(DEPDIR)/$(am__dirstamp)
 libPCMutils/src/pcmutils_lib.lo: libPCMutils/src/$(am__dirstamp) \
 	libPCMutils/src/$(DEPDIR)/$(am__dirstamp)
 libFDK/src/$(am__dirstamp):
@@ -1147,6 +1152,8 @@ mostlyclean-compile:
 	-rm -f libMpegTPEnc/src/tpenc_latm.lo
 	-rm -f libMpegTPEnc/src/tpenc_lib.$(OBJEXT)
 	-rm -f libMpegTPEnc/src/tpenc_lib.lo
+	-rm -f libPCMutils/src/limiter.$(OBJEXT)
+	-rm -f libPCMutils/src/limiter.lo
 	-rm -f libPCMutils/src/pcmutils_lib.$(OBJEXT)
 	-rm -f libPCMutils/src/pcmutils_lib.lo
 	-rm -f libSBRdec/src/env_calc.$(OBJEXT)
@@ -1311,6 +1318,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libMpegTPEnc/src/$(DEPDIR)/tpenc_asc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libMpegTPEnc/src/$(DEPDIR)/tpenc_latm.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libMpegTPEnc/src/$(DEPDIR)/tpenc_lib.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libPCMutils/src/$(DEPDIR)/limiter.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libPCMutils/src/$(DEPDIR)/pcmutils_lib.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libSBRdec/src/$(DEPDIR)/env_calc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libSBRdec/src/$(DEPDIR)/env_dec.Plo@am__quote@
