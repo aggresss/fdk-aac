@@ -153,7 +153,6 @@ typedef enum {
 /*-------------------------- defines --------------------------------------*/
 
 #define ANC_DATA_BUFFERSIZE 1024      /* ancBuffer size */
-#define DEFAULT_FRAMELENGTH 1024      /* size of AAC core frame in (new) PCM samples */
 
 #define MAX_TOTAL_EXT_PAYLOADS  (((6) * (1)) + (2+2))
 
@@ -174,7 +173,8 @@ typedef enum {
 typedef enum {
 
   CH_ORDER_MPEG = 0,  /*!< MPEG channel ordering (e. g. 5.1: C, L, R, SL, SR, LFE)           */
-  CH_ORDER_WAV        /*!< WAV fileformat channel ordering (e. g. 5.1: L, R, C, LFE, SL, SR) */
+  CH_ORDER_WAV,       /*!< WAV fileformat channel ordering (e. g. 5.1: L, R, C, LFE, SL, SR) */
+  CH_ORDER_WG4        /*!< WG4 fileformat channel ordering (e. g. 5.1: L, R, SL, SR, C, LFE) */
 
 } CHANNEL_ORDER;
 

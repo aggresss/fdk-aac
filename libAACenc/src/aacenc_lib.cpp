@@ -98,7 +98,7 @@ amm-info@iis.fraunhofer.de
 /* Encoder library info */
 #define AACENCODER_LIB_VL0 3
 #define AACENCODER_LIB_VL1 3
-#define AACENCODER_LIB_VL2 1
+#define AACENCODER_LIB_VL2 3
 #define AACENCODER_LIB_TITLE "AAC Encoder"
 #define AACENCODER_LIB_BUILD_DATE __DATE__
 #define AACENCODER_LIB_BUILD_TIME __TIME__
@@ -1657,7 +1657,7 @@ AACENC_ERROR aacEncoder_SetParam(
         break;
     case AACENC_CHANNELORDER:
         if (hAacEncoder->aacConfig.channelOrder != (CHANNEL_ORDER)value) {
-            if (! ((value==0) || (value==1)) ) {
+            if (! ((value==0) || (value==1) || (value==2)) ) {
                 err = AACENC_INVALID_CONFIG;
                 break;
             }
